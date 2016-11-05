@@ -2,9 +2,93 @@
 <html lang="en">
 <head>
         <meta charset="UTF-8">
-        <title>Index page</title>
+        <title>Welcome to data analyze</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.deep_purple-blue.min.css" />
+		<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 <body>
-        Hello This is where we download stuff
+   <!-- Uses a header that contracts as the page scrolls down. -->
+<style>
+.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+  padding-right: 0;
+}
+</style>
+
+<div class="demo-layout-waterfall mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--waterfall">
+    <!-- Top row, always visible -->
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Select Dataset</span>
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="waterfall-exp">
+        </div>
+      </div>
+    </div>
+    <!-- Bottom row, not visible on scroll -->
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Archives</a>
+        <a class="mdl-navigation__link" href="">Kaggle</a>
+        <a class="mdl-navigation__link" href="">Azure</a>
+        <a class="mdl-navigation__link" href="">Panel</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Action Set</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href=""><span class="material-icons"><b>build</b></span> Operations</a>
+      <a class="mdl-navigation__link" href=""><span class="material-icons"><b>visibility</b></span> Visualize</a>
+      <a class="mdl-navigation__link" href=""><span class="material-icons"><b>refresh</b></span> Change</a>
+      <a class="mdl-navigation__link" href=""><span class="material-icons"><b>add</b></span> Create</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here -->
+    	<!-- Three Line List with secondary info and action -->
+		<style>
+		.demo-list-three {
+		  width: 80%;
+		  margin-left: 10%;
+		}
+		</style>
+		<ul class="demo-list-three mdl-list">
+		  {% for link, prod, descr in elements%}
+		  <li class="mdl-list__item mdl-list__item--three-line">
+		    <span class="mdl-list__item-primary-content">
+		      <i class="material-icons mdl-list__item-avatar">person</i>
+		      <span><a href="{{link}}"> {{prod}} </a></span>
+		      <span class="mdl-list__item-text-body">
+		        {{descr}}
+		      </span>
+		    </span>
+		    <span class="mdl-list__item-secondary-content">
+		      <a class="mdl-list__item-secondary-action" href="#"><!-- Colored raised button -->
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+					  Begin
+					</button>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+					  Download
+					</button>
+</a>
+		    </span>
+		  </li>
+		  {% endfor %}
+		</ul>    	
+    </div>
+  </main>
+</div>
 </body>
 </html>
