@@ -1,0 +1,9 @@
+ .data_mdl_layout__align {
+      align-items: center;
+      justify-content: center;
+      }
+
+    .data_mdl_content {
+    padding: 290px;
+      flex: none;
+    }

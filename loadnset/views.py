@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from fetch import elements
+from . import fetch
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required(login_url="/auth/index")
 def down(request):
-	element = elements()
-	return render(request,'index.html',{'elements':element})
+	element = fetch.elements()
+	return render(request,'index.html',{'elements':element})                                 

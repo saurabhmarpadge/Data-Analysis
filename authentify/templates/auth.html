@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data Analyze Authentication</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.deep_purple-blue.min.css" />
+  <link rel="stylesheet" href="/static/auth_styles/styles.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Data Analyze</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Login</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab">Signup</a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Authentication</span>
+  </div>
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">
+        <div class="mdl-layout mdl-js-layout mdl-color--grey-100 data_mdl_layout__align">
+          <main class="mdl-layout__content data_mdl_content">
+            <div class="mdl-card mdl-shadow--6dp">
+              <div class="md-card__title mdl-color--primary mdl-color-text--white">
+                <h2 class="mdl-card__title-text">Data Analyze - Login</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <form action="{% url 'authentify:login' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="email" id="email" name="email">
+                    <label for="email" class="mdl-textfield__label">Email</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="password" id="password" name="password">
+                    <label for="password" class="mdl-textfield__label">Password</label>
+                  </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Login</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content"><!-- Your content goes here -->
+        <div class="mdl-layout mdl-js-layout mdl-color--grey-100 data_mdl_layout__align">
+          <main class="mdl-layout__content data_mdl_content">
+            <div class="mdl-card mdl-shadow--6dp">
+              <div class="md-card__title mdl-color--primary mdl-color-text--white">
+                <h2 class="mdl-card__title-text">Data Analyze - Signup</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <form action="{% url 'authentify:signup' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="fullname" name="fullname" pattern="[A-Z][a-z]+[ ][A-Z][a-z]+">
+                    <label for="fullname" class="mdl-textfield__label">Name</label>
+                    
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="email" id="email" name="email">
+                    <label for="username" class="mdl-textfield__label">Email</label>
+                  </div>
+
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="password" id="password" name="password">
+                    <label for="password" class="mdl-textfield__label">Password</label>
+                  </div>
+                <div class="mdl-card__actions mdl-card--border">
+                  <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Create Account</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+   </main>
+</div>
+</body>
+</html>

@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^load/', include('loadnset.urls')),
     url(r'^viz/',include('visualize.urls')),
+    url(r'^auth/', include('authentify.urls'))
 ]
